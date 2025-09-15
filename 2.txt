@@ -1,2 +1,0 @@
-# git essential
-here we can create any types of files
