@@ -1,4 +1,11 @@
 here we can update any file
 hii welcome
 this kavali
+<<<<<<< HEAD
 today is the tuesday where we have a pipiline call to discuss
+=======
+this is hyderabad
+count a=100
+
+
+>>>>>>> a56cef6fb432b0dd2ab74815c13e72f5d3f7979f
