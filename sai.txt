@@ -1,2 +1,3 @@
 hi this is saikireeti
-here we can know about the rebase concept how it works
+here we can know about the rebase concept how it work
+rebase is the concept of integrate the changes in one branch to another branch by reapplies the commits from current branch to target branch on top of the last commit.
