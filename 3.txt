@@ -1,7 +1,18 @@
 here we can update any file
 hii welcome
 this kavali
+<<<<<<< HEAD
 today is the tuesday where we have a pipiline call to discuss
 this is hyderabad
 count a=100
  var b=200
+=======
+
+today is the tuesday where we have a pipiline call to discuss
+
+this is hyderabad
+count a=100
+
+
+
+>>>>>>> 257fbb94934e79a356c7d2f276eeff73a2665ab0
