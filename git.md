@@ -198,7 +198,6 @@ ANS: To initialize a new Git repository, navigate to the desired project directo
    - Regularly review and update the versioning strategy to align with project needs and team workflows.
 
 23.  How do you back up and restore a Git repository?
-    
    ANS: To back up a Git repository, you can simply clone the repository to another location using `git clone <repository_url>`. Additionally, you can create a bare repository using `git clone --bare <repository_url>` to have a complete copy of the repository without a working directory. For more robust backups, consider using remote hosting services like GitHub, GitLab, or Bitbucket, which provide built-in backup and redundancy features. To restore a Git repository, you can clone the backup repository to your desired location using `git clone<backup_repository_url>`. If you have a bare repository, you can create a new working directory by cloning it as a regular repository. Always ensure that you have multiple backups in different locations to prevent data loss.
 
 
