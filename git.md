@@ -1,10 +1,12 @@
-## GIT 
+## GIT
+
 Git is an open source  distributed version control system.
 It is used to track the changes in the source code during software development.
 It is designed to handle everything from small to very large projects with speed and efficiency.
 It allows multiple developers to work on the same project simultaneously without overwriting each other's changes.
 
 ### Basic Git Commands
+
 - `git init`: Initializes a new Git repository.
 - `git clone <repository_url>`: Clones an existing repository from a remote server.
 - `git add <file_name>`: Stages changes for the next commit.
@@ -30,82 +32,124 @@ It allows multiple developers to work on the same project simultaneously without
 - `git show <commit_id>`: Displays detailed information about a specific commit.
 - `git reflog`: shows the history of all the changes made in the repository including the commits that are not reachable from any branch.
 
-## git branching strategies
-- **Git Flow**: A branching model that defines a strict branching structure for managing feature, development,release,hot fixes and master branches.
-- 
-- **GitHub Flow**: It is a simple branching strategy that involves creating a new branch from master to develop any feature or fix any bug and merge them into the master branch by raising the pull request.
+# Branch:
+A branch in Git is a separate line of development that allows multiple developers to work on different features or bug fixes simultaneously without interfering with each other's work.
+Branches are used to isolate changes and provide a way to experiment with new ideas without affecting the main codebase.
 
-**main only strategies**: in this strategies we only have main branch and all the changes are directly made in the main branch and deployed to production.
+## Branching strategies :
+Branching strategies are the approaches used to manage branches in a Git repository.
+There are several branching strategies that can be used in Git, depending on the project's needs and workflow. Some common branching strategies include:
 
-**Feature branching strategies**: 
+**Git Flow**: 
+- It is a popular branching model that provides a robust framework for managing releases, hotfixes, and feature development.
+- It involves creating multiple branches for different purposes, such as develop, master, feature, release, and hotfix branches.
+- Each branch has a specific role and is used to manage different stages of the development process.
+- The main branches are:
+  - `master`: It is the main branch that contains the production-ready code.
+  - `develop`: It is the branch where all the feature branches are merged and tested before being released to production.
+  - `feature`: It is a branch created for each new feature or bug fix.
+  - `release`: It is a branch created for preparing a new release.
+  - `hotfix`: It is a branch created for fixing critical bugs in the production code.
+
+- **GitHub Flow**: 
+- It is a simple and lightweight branching model that is commonly used in open source projects.
+- It is a simple branching strategy that involves creating a new branch from master to develop any feature or fix any bug and merge them into the master branch by raising the pull request.
+
+**main only strategies**:
+
+In this strategies we only have main branch and all the changes are directly made in the main branch and deployed to production.
+
+**Feature branching strategies**:
+In this branching strategy we have a separate branch for each feature.
 It is used to develop very feature on its on own branch and all the changes related to that feature are made in that branch and merged into  develop branch after the completion of the feature.
 
 **Trunked based development**:
 In this branching strategy we have only one branch called trunk or main branch and all the developers directly commit their changes to the main branch and deploy to production.
 
 **Release branching strategies**:
+
 In this branching strategy we have a separate branch for each release and all the changes are made in the release branch and merged into the main branch after the completion of the release.
 
-## git merge:
+## git merge
+
 git merge is the concept that combines the one branch into another branch by raising the pr.
-in the merge concept we have three ways to merge them 
+in the merge concept we have three ways to merge them
+
 1. fast forward merge: it is the concept that directly moves the pointer of the target branch to the latest commit of the source branch
 example:
-```git merge feature-branch
+
+````git merge feature-branch`
 ```
+
 2. Non fast forward: it is the concept that creates a new commit in the target branch that combines the changes from both branches.
    example:
-```git merge --no-ff feature-branch
-```
+ `git merge --no-ff feature-branch`
+
 3.merge conflict:it occurs when the two developers changes same line the same file in their branches try to merge them into main branch or develop branch.
     example:
-    ```git merge feature-branch
+    ````git merge feature-branch`
     ```
-In the above example if both the developers changes same line in the same file then it will show the merge conflict and we have to resolve them manually by editing the file and removing the conflict markers and then stage the file and commit it.   
+In the above example if both the developers changes same line in the same file then it will show the merge conflict and we have to resolve them manually by editing the file and removing the conflict markers and then stage the file and commit it.
+## When to use git merge vs git rebase?
+ANS:
+Use git merge when you want to combine the changes from one branch into another branch and preserve the history of both branches.
+Use git rebase when you want to apply the changes from one branch onto another branch and create a linear history.
 
 ## git rebase:
 git rebase is the concept that reapplies the commits on the tip of the latest commit of the target branch.it is used to showcase the linear history .
 it is of two types
+
 1. interactive rebase: it is used to edit,delete,squash or reword the commits.
    example:
-```git rebase -i HEAD~3
+
+````git rebase -i HEAD~3`
 ```
+
 2. non interactive rebase: it is used to reapply the commits on the tip of the latest commit of the target branch.
 example:
-```git rebase main
-``` 
-# git squash:
+
+````git rebase main` 
+```
+
+# git squash
+
 It is the concept that combines the multiple commits into single commit to make the history clean and in the linear structure.It is done by the interactive rebase method.
 Example:
-```git rebase -i HEAD~3
+
+````git rebase -i HEAD~3`
 ```
+
 In the above command HEAD~3 means last three commits will be shown to squash.
 In the interactive mode we can see the list of commits with the pick option in front of them.we can change the pick option to squash or s to combine the commits.
 After saving and closing the editor it will show another editor to edit the commit message for the squashed commit.we can edit the message or keep it as it is and save and close the editor to complete the squash process.
 
 ## git cherry-pick:
+
 it is the concept that applies the changes when we need pick a specific commit to add to the current branch. By using commit id.
 example:
-```git cherry-pick <commit_id>
+
+````git cherry-pick <commit_id>`
 ```
-## git revert:
+
+## git revert
+
 it is the concept that creates a new commit that undoes the changes made in a specific commit
 example:
-```git revert <commit_id>
+
+````git revert <commit_id>`
 ```
+
 it is used to undo the changes in a commit without modifying the commit history.
 
-  
-
-
 ## GIT REAL WORLD SCENARIO BASE QUESTIONS AND ANSWERS FOR INTERVIEW PREARATION AS 2 YEARS EXPERIENCE
+
 1. What is Git and why is it used in software development?
    ANS: Git is a distributed version control system that allows multiple developers to collaborate on a project by tracking changes in the source code. It helps manage code versions, facilitates collaboration, and enables easy rollback to previous states if needed.
 
 2. Explain the difference between Git and other version control systems like SVN or Mercurial.
 ANS: Git is a distributed version control system, meaning each developer has a complete copy of the repository, allowing for offline work and faster operations. In contrast, SVN and Mercurial are centralized systems where developers rely on a central server for version control, which can lead to bottlenecks and limited offline capabilities.
 
-3. What are the main components of a Git repository? 
+3. What are the main components of a Git repository?
 ANS: The main components of a Git repository include the working directory (where files are edited), the staging area (where changes are prepared for commit), and the .git directory (which contains all the metadata and history of the repository).
 
 4. How do you initialize a new Git repository?
@@ -129,11 +173,11 @@ ANS: To initialize a new Git repository, navigate to the desired project directo
 10. How do you resolve merge conflicts in Git?
  ANS: To resolve merge conflicts in Git, first identify the files with conflicts using `git status`. Open the conflicted files and look for conflict markers (e.g., `<<<<<<<`, `=======`, `>>>>>>>`). Manually edit the files to resolve the conflicts, then stage the resolved files using `git add <file>`. Finally, complete the merge by committing the changes with `git commit`.
 11. What is the difference between a fast-forward merge and a three-way merge?  
-    ANS: A fast-forward merge occurs when the target branch is directly ahead of the source branch, allowing Git to simply move the pointer of the target branch to the latest commit of the source branch without creating a new commit. 
+    ANS: A fast-forward merge occurs when the target branch is directly ahead of the source branch, allowing Git to simply move the pointer of the target branch to the latest commit of the source branch without creating a new commit.
     A three-way merge, on the other hand, is used when both branches have diverged, requiring Git to create a new merge commit that combines the changes from both branches.
 12. How do you view the commit history in Git?
  ANS: To view the commit history in Git, use the command `git log`. This displays a list of commits along with their commit IDs, authors, dates, and commit messages. You can also use options like `git log --oneline` for a more concise view or `git log --graph` to visualize the branch structure.
-    
+
 13. What is the purpose of `git stash` and how do you use it?
  ANS: `git stash` is used to temporarily save changes in the working directory that are not ready to be committed. This allows you to switch branches or perform other operations without losing your uncommitted changes. To stash changes, use `git stash`. To apply the stashed changes later, use `git stash apply` or `git stash pop` (which applies and removes the stash).
 14. How do you revert a commit in Git?
@@ -144,60 +188,166 @@ ANS: To initialize a new Git repository, navigate to the desired project directo
    ANS: To handle large binary files in a Git repository, you can use Git Large File Storage (LFS). Git LFS replaces large files with text pointers in the repository, while the actual file content is stored on a separate server. To use Git LFS, install it and run `git lfs track <file_pattern>` to specify which files to manage with LFS. Then, commit and push the changes as usual.
 17. What are some best practices for using Git in a team environment?
  ANS: Some best practices for using Git in a team environment include:
-   - Use descriptive commit messages to provide context for changes.
-   - Create feature branches for new features or bug fixes to keep the main branch stable.
-   - Regularly pull changes from the main branch to keep your branch up to date.
-   - Review and test code before merging it into the main branch.
-   - Use pull requests for code reviews and collaboration.
-   - Avoid committing large binary files directly to the repository; use Git LFS instead.
-   - Keep the commit history clean by squashing unnecessary commits before merging.
-   - Communicate with team members about changes and coordinate merges to avoid conflicts.
-   - Regularly back up the repository to prevent data loss.
-   - Document the branching strategy and workflow used by the team to ensure consistency.
-   - Encourage the use of `.gitignore` to exclude unnecessary files from being tracked.
-   - 
+
+- Use descriptive commit messages to provide context for changes.
+- Create feature branches for new features or bug fixes to keep the main branch stable.
+- Regularly pull changes from the main branch to keep your branch up to date.
+- Review and test code before merging it into the main branch.
+- Use pull requests for code reviews and collaboration.
+- Avoid committing large binary files directly to the repository; use Git LFS instead.
+- Keep the commit history clean by squashing unnecessary commits before merging.
+- Communicate with team members about changes and coordinate merges to avoid conflicts.
+- Regularly back up the repository to prevent data loss.
+- Document the branching strategy and workflow used by the team to ensure consistency.
+- Encourage the use of `.gitignore` to exclude unnecessary files from being tracked.
+-
+
 18. How do you handle code reviews and pull requests in Git?
 . ANS: Code reviews and pull requests in Git are typically handled through platforms like GitHub, GitLab, or Bitbucket. When a developer completes a feature or bug fix, they create a pull request (PR) from their feature branch to the main branch. Team members can then review the code changes, leave comments, suggest improvements, and approve or request changes. Once the PR is approved, it can be merged into the main branch, often using a merge commit or squashing commits for a cleaner history.
 
-19. What is the purpose of `git bisect` and how do you use it?      
+19. What is the purpose of `git bisect` and how do you use it?
 . ANS: `git bisect` is a tool used to find the specific commit that introduced a bug or issue in the codebase. It uses a binary search algorithm to efficiently narrow down the range of commits. To use `git bisect`, start by running `git bisect start`, then mark a known good commit with `git bisect good <commit_id>` and a known bad commit with `git bisect bad <commit_id>`. Git will then check out a commit in the middle of the range, and you can test it to see if the issue is present. Based on the result, you mark it as good or bad, and Git will continue to narrow down the range until it finds the problematic commit. Once done, run `git bisect reset` to return to the original branch.
 
 20. How do you manage and resolve conflicts when multiple developers are working on the same codebase?
  ANS: To manage and resolve conflicts when multiple developers are working on the same code base, follow these steps:
-   - Communicate with team members to coordinate changes and avoid overlapping work.
-   - Regularly pull changes from the main branch to keep your local branch up to date.
-   - When a conflict occurs during a merge or rebase, use `git status` to identify the conflicted files.
-   - Open the conflicted files and look for conflict markers (e.g., `<<<<<<<`, `=======`, `>>>>>>>`). Manually edit the files to resolve the conflicts by choosing which changes to keep or combining them as needed.
-   - After resolving the conflicts, stage the resolved files using `git add <file>`.
-   - Complete the merge or rebase process by committing the changes with `git commit` (if merging) or continuing the rebase with `git rebase --continue`.
-   - Test the code thoroughly to ensure that the resolved changes work as expected.
-   - Consider using code reviews and pull requests to catch potential conflicts early and ensure code quality.
-   - Document the resolution process and communicate with the team to prevent similar conflicts in the future.
-- 
--  21. How do you optimize Git performance for large repositories?
-   ANS: To optimize Git performance for large repositories, consider the following strategies:
-    - Use Git LFS (Large File Storage) to manage large binary files, reducing the size of the repository.
-    - Regularly clean up the repository by removing unnecessary branches and tags.
-    - Use shallow clones (`git clone --depth <depth>`) to limit the history depth when cloning large repositories.
-    - Compress the repository using `git gc` (garbage collection) to optimize storage and improve performance.
-    - Avoid committing large files directly to the repository; instead, use external storage solutions.
-    - Split large repositories into smaller, more manageable sub-repositories if possible.  
-    - Use `.gitignore` to exclude unnecessary files and directories from being tracked.
-    - Monitor and analyze repository performance using tools like `git-sizer` to identify potential issues
-    - Educate team members on best practices for using Git to prevent performance degradation.
-    - 
-22.   How do you handle versioning and releases in Git?
-   ANS: To handle versioning and releases in Git, follow these practices:
-   - Use semantic versioning (e.g., v1.0.0) to clearly indicate the version of the software.
-   - Create a dedicated branch for releases (e.g., `release` or `main`) to keep it stable and production-ready.
-   - Use tags to mark specific commits as release points (e.g., `git tag v1.0.0`).
-   - Create release branches for preparing new versions, allowing for final testing and bug fixes before merging into the main branch.
-   - Document changes in a changelog to provide context for each release.
-   - Automate the release process using CI/CD pipelines to ensure consistency and reduce manual errors.
-   - Communicate with the team about upcoming releases and coordinate deployment activities.
-   - Regularly review and update the versioning strategy to align with project needs and team workflows.
 
-23.  How do you back up and restore a Git repository?
+- Communicate with team members to coordinate changes and avoid overlapping work.
+- Regularly pull changes from the main branch to keep your local branch up to date.
+- When a conflict occurs during a merge or rebase, use `git status` to identify the conflicted files.
+- Open the conflicted files and look for conflict markers (e.g., `<<<<<<<`, `=======`, `>>>>>>>`). Manually edit the files to resolve the conflicts by choosing which changes to keep or combining them as needed.
+- After resolving the conflicts, stage the resolved files using `git add <file>`.
+- Complete the merge or rebase process by committing the changes with `git commit` (if merging) or continuing the rebase with `git rebase --continue`.
+- Test the code thoroughly to ensure that the resolved changes work as expected.
+- Consider using code reviews and pull requests to catch potential conflicts early and ensure code quality.
+- Document the resolution process and communicate with the team to prevent similar conflicts in the future.
+-
+- 21. How do you optimize Git performance for large repositories?
+   ANS: To optimize Git performance for large repositories, consider the following strategies:
+  - Use Git LFS (Large File Storage) to manage large binary files, reducing the size of the repository.
+  - Regularly clean up the repository by removing unnecessary branches and tags.
+  - Use shallow clones (`git clone --depth <depth>`) to limit the history depth when cloning large repositories.
+  - Compress the repository using `git gc` (garbage collection) to optimize storage and improve performance.
+  - Avoid committing large files directly to the repository; instead, use external storage solutions.
+  - Split large repositories into smaller, more manageable sub-repositories if possible.  
+  - Use `.gitignore` to exclude unnecessary files and directories from being tracked.
+  - Monitor and analyze repository performance using tools like `git-sizer` to identify potential issues
+  - Educate team members on best practices for using Git to prevent performance degradation.
+  -
+
+22. How do you handle versioning and releases in Git?
+   ANS: To handle versioning and releases in Git, follow these practices:
+
+- Use semantic versioning (e.g., v1.0.0) to clearly indicate the version of the software.
+- Create a dedicated branch for releases (e.g., `release` or `main`) to keep it stable and production-ready.
+- Use tags to mark specific commits as release points (e.g., `git tag v1.0.0`).
+- Create release branches for preparing new versions, allowing for final testing and bug fixes before merging into the main branch.
+- Document changes in a changelog to provide context for each release.
+- Automate the release process using CI/CD pipelines to ensure consistency and reduce manual errors.
+- Communicate with the team about upcoming releases and coordinate deployment activities.
+- Regularly review and update the versioning strategy to align with project needs and team workflows.
+
+23. How do you back up and restore a Git repository?
+
    ANS: To back up a Git repository, you can simply clone the repository to another location using `git clone <repository_url>`. Additionally, you can create a bare repository using `git clone --bare <repository_url>` to have a complete copy of the repository without a working directory. For more robust backups, consider using remote hosting services like GitHub, GitLab, or Bitbucket, which provide built-in backup and redundancy features. To restore a Git repository, you can clone the backup repository to your desired location using `git clone<backup_repository_url>`. If you have a bare repository, you can create a new working directory by cloning it as a regular repository. Always ensure that you have multiple backups in different locations to prevent data loss.
 
+# i have an issuse with previous commit which i was commited to wrong branch how i can bring it back actual brancg
 
+ANS: If you have committed changes to the wrong branch, you can use the following steps to move the commit to the correct branch:
+
+1. First, switch to the branch where you mistakenly committed the changes:
+
+   ```bash
+   git checkout wrong-branch
+   ```
+
+2. Use `git log` to find the commit hash of the commit you want to move:
+
+   ```bash
+   git log
+   ```
+
+3. Once you have the commit hash, switch to the correct branch where you want to move the commit:
+
+   ```bash 
+   git checkout correct-branch
+   ```  
+
+4. Use `git cherry-pick` to apply the commit from the wrong branch to the correct branch:
+
+   ```bash
+   git cherry-pick <commit_hash>
+   ```
+
+5. After successfully cherry-picking the commit, switch back to the wrong branch:
+
+   ```bash
+   git checkout wrong-branch
+   ```
+
+6. Use `git reset` to remove the commit from the wrong branch. If you want to keep the changes in your working directory, use `--soft`. If you want to discard the changes, use `--hard`:
+
+   ```bash  
+   git reset --hard HEAD~1
+   ```
+
+This will move the HEAD pointer back by one commit, effectively removing the last commit from the wrong branch.
+7. Finally, push the changes to the remote repository if necessary:
+
+   ```bash
+   git push origin correct-branch
+   git push origin wrong-branch --force  # Use with caution, as this rewrites history
+   ```
+
+This process will move the commit from the wrong branch to the correct branch while ensuring that the commit history remains intact.
+
+# I have committed some changes but I haven't pushed them yet. How can I modify the last commit message?
+
+ANS: If you have committed changes but haven't pushed them yet, you can modify the last commit message using the following command:
+
+```bash
+git commit --amend
+```
+This command opens your default text editor with the current commit message. You can edit the message as needed. After making your changes, save and close the editor. The last commit will be updated with the new message.  
+If you want to change the commit message without opening an editor, you can use the `-m` option followed by the new message:
+
+```bash  
+git commit --amend -m "New commit message"
+```
+This will directly update the last commit message without opening an editor. Remember that amending a commit changes its hash, so if you have already shared the commit with others, it's best to avoid amending it to prevent confusion.
+# How can I see the changes made in a specific commit?
+ANS: To see the changes made in a specific commit, you can use the `git show` command followed by the commit hash. For example:
+
+```bash
+     `git show <commit_hash> `
+```
+This command displays the details of the specified commit, including the commit message, author, date, and the changes made in that commit. The changes are shown in a diff format, highlighting the additions and deletions made to the files.
+You can also use `git diff` to compare the changes between two commits. For example, to see the changes between two specific commits, you can use:
+
+```bash
+git diff <commit_hash1> <commit_hash2>
+``
+This will show the differences between the two commits, allowing you to see what changes were made from one commit to the other.
+# if i have been working on feature branch and updated the code to develop after testing IS DONE HOW TO MOVE THE CODE TO QA TO SAT PREPROD ENVIRONMENT
+ANS: To move the code from the feature branch to the QA, SAT, or pre-production environment after testing is done, you typically follow these steps:
+1. Merge the feature branch into the develop branch:
+   First, ensure you are on the develop branch and merge the feature branch into it:
+
+   ```bash
+   git checkout develop
+   git merge feature-branch
+   ```
+2. Push the changes to the remote develop branch:
+   After merging, push the updated develop branch to the remote repository:
+
+   ```bash
+   git push origin develop
+   ```
+3. Create a release branch (optional):
+   If your workflow includes a release branch, create one from the develop branch:
+
+   ```bash
+   git checkout -b release-branch
+   git push origin release-branch
+   ```
+4. Deploy to QA/SAT/Pre-prod environment:
+   Depending on your deployment process, you may have a CI/CD pipeline set up to automatically deploy
