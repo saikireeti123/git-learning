@@ -32,15 +32,18 @@ It allows multiple developers to work on the same project simultaneously without
 - `git show <commit_id>`: Displays detailed information about a specific commit.
 - `git reflog`: shows the history of all the changes made in the repository including the commits that are not reachable from any branch.
 
-# Branch:
+# Branch
+
 A branch in Git is a separate line of development that allows multiple developers to work on different features or bug fixes simultaneously without interfering with each other's work.
 Branches are used to isolate changes and provide a way to experiment with new ideas without affecting the main codebase.
 
-## Branching strategies :
+## Branching strategies
+
 Branching strategies are the approaches used to manage branches in a Git repository.
 There are several branching strategies that can be used in Git, depending on the project's needs and workflow. Some common branching strategies include:
 
-**Git Flow**: 
+## Git Flow
+
 - It is a popular branching model that provides a robust framework for managing releases, hotfixes, and feature development.
 - It involves creating multiple branches for different purposes, such as develop, master, feature, release, and hotfix branches.
 - Each branch has a specific role and is used to manage different stages of the development process.
@@ -51,22 +54,25 @@ There are several branching strategies that can be used in Git, depending on the
   - `release`: It is a branch created for preparing a new release.
   - `hotfix`: It is a branch created for fixing critical bugs in the production code.
 
-- **GitHub Flow**: 
+- ## GitHub Flow
+
 - It is a simple and lightweight branching model that is commonly used in open source projects.
 - It is a simple branching strategy that involves creating a new branch from master to develop any feature or fix any bug and merge them into the master branch by raising the pull request.
 
-**main only strategies**:
+## main only strategies
 
 In this strategies we only have main branch and all the changes are directly made in the main branch and deployed to production.
 
-**Feature branching strategies**:
+## Feature branching strategies
+
 In this branching strategy we have a separate branch for each feature.
 It is used to develop very feature on its on own branch and all the changes related to that feature are made in that branch and merged into  develop branch after the completion of the feature.
 
-**Trunked based development**:
+## Trunked based development
+
 In this branching strategy we have only one branch called trunk or main branch and all the developers directly commit their changes to the main branch and deploy to production.
 
-**Release branching strategies**:
+## Release branching strategies
 
 In this branching strategy we have a separate branch for each release and all the changes are made in the release branch and merged into the main branch after the completion of the release.
 
@@ -79,9 +85,8 @@ in the merge concept we have three ways to merge them
 example:
 
 ````git merge feature-branch`
-```
 
-2. Non fast forward: it is the concept that creates a new commit in the target branch that combines the changes from both branches.
+2.Non fast forward: it is the concept that creates a new commit in the target branch that combines the changes from both branches.
    example:
  `git merge --no-ff feature-branch`
 
@@ -90,12 +95,14 @@ example:
     ````git merge feature-branch`
     ```
 In the above example if both the developers changes same line in the same file then it will show the merge conflict and we have to resolve them manually by editing the file and removing the conflict markers and then stage the file and commit it.
+
 ## When to use git merge vs git rebase?
-ANS:
+
 Use git merge when you want to combine the changes from one branch into another branch and preserve the history of both branches.
 Use git rebase when you want to apply the changes from one branch onto another branch and create a linear history.
 
-## git rebase:
+## git rebase
+
 git rebase is the concept that reapplies the commits on the tip of the latest commit of the target branch.it is used to showcase the linear history .
 it is of two types
 
@@ -103,13 +110,12 @@ it is of two types
    example:
 
 ````git rebase -i HEAD~3`
-```
 
-2. non interactive rebase: it is used to reapply the commits on the tip of the latest commit of the target branch.
+2.non interactive rebase: it is used to reapply the commits on the tip of the latest commit of the target branch.
 example:
 
-````git rebase main` 
-```
+````git rebase main`
+In the above example it will reapply the commits of the current branch on the tip of the latest commit of the main branch.
 
 # git squash
 
@@ -117,7 +123,6 @@ It is the concept that combines the multiple commits into single commit to make 
 Example:
 
 ````git rebase -i HEAD~3`
-```
 
 In the above command HEAD~3 means last three commits will be shown to squash.
 In the interactive mode we can see the list of commits with the pick option in front of them.we can change the pick option to squash or s to combine the commits.
